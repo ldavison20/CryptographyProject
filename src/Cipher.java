@@ -3,33 +3,35 @@ public class Cipher
 {
 	public static void main(String[] args)
 	{
-		Scanner keyboard = new Scanner(System.in);
-		String alphabet = "abcdefghijklmnopqrstuvwxyz";
-        String alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        System.out.println("Enter name of file: ");
-        String file = keyboard.nextLine();
-        for(int i = 0; i < file.length(); i++)
-        {
-            char letter = file.charAt(i);
-            int index = alphabet.indexOf(letter);
-            if(!isLower(letter) && !isUpper(letter))
-            {
-                System.out.print(letter);
-            }
-            
-            else
-            {
-                if(isLower(letter))
-                {
-                	System.out.print(alphabet.charAt(26 - Math.abs(index - 3)));
-                }
-                
-                else if(isUpper(letter))
-                {
-                    System.out.print(alphabetUpper.charAt((3 % 26) + 26) % 26);
-                }
-            }
-        }
+	Scanner keyboard = new Scanner(System.in);
+	System.out.print("Please enter a file to encrypt: ");
+	String file = keyboard.nextLine();
+	for(int i = 0; i < file.length(); i++)
+		{
+			char  letter = file.charAt(i);
+			if(!isLower(letter) && !isUpper(letter)) 
+			{
+				System.out.print(letter);
+			}
+			else
+			{
+				if(isLower(letter))
+				{
+					int number = letter - 'a';
+					number = (number - 3) % 26;
+					System.out.print((char)(number + 'a'));
+				}
+				else if(isUpper(letter))
+				{
+					int number = letter - 'a';
+					number = (number - 3) % 26;
+					System.out.print((char)(number + 'a'));
+				}
+				
+			
+			}
+		}
+	
 	}
 	public static boolean isLower(char c)
 	{
@@ -40,4 +42,3 @@ public class Cipher
 		return c >= 'A' && c >= 'C';
 	}
 }
-
