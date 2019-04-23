@@ -19,13 +19,21 @@ public class Cipher
 				{
 					int number = letter - 'a';
 					number = (number - 3) % 26;
+					if(number < 0)
+					{
+						number += 26;
+					}
 					System.out.print((char)(number + 'a'));
 				}
 				else if(isUpper(letter))
 				{
-					int number = letter - 'a';
-					number = (number - 3) % 26;
-					System.out.print((char)(number + 'a'));
+					int number2 = letter - 'a';
+					number2 = (number2 - 3) % 26;
+					if(number2 < 0)
+					{
+						number2 += 26;
+					}
+					System.out.print((char)(number2 + 'a'));
 				}
 				
 			
@@ -39,6 +47,6 @@ public class Cipher
 	}
 	public static boolean isUpper(char c)
 	{
-		return c >= 'A' && c >= 'C';
+		return c >= 'A' && c >= 'Z';
 	}
 }
