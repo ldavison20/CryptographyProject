@@ -17,7 +17,7 @@ public class Cipher
 	
 	while(inputFile.hasNextLine())
 	{
-	for(int i = 0; i < file.length(); i++)
+	for(int i = 0; i < myFile.length(); i++)
 		{
 			char  letter = file.charAt(i);
 			if(!isLower(letter) && !isUpper(letter)) 
@@ -60,7 +60,6 @@ public class Cipher
 	}
 	public static boolean isUpper(char c)
 	{
-		return c >= 'A' && c >= 'Z';
+		return c >= 'A' && c <= 'Z';
 	}
 }
-
